@@ -154,7 +154,7 @@ before
 
 after
 ![sample](https://github.com/AnthonyDRdutra/PHP-CRUD-using-MySQL/assets/97138694/9b18511b-e9aa-45ad-9287-37d37e4168d4)
-(dont mind the bugged position, i forgot to put in te correct order).
+(dont mind the bugged position, i forgot to put in the correct order).
 
 If your new field name, correspond to any one in the database, it will work just fine.  
 
