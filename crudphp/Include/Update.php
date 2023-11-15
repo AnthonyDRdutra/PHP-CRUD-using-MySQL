@@ -4,8 +4,12 @@ include "CRUD_logic.php";
 $update = new \Include\CRUD_logic();
 
 $id = filter_input(INPUT_GET, 'id');
+
+//we declare usuario as an variable to be read as an array
+//if we dont do it, update will be read as a boolean 
 $usuario = $update->Update_client($id);
 
+//thats our graphic interface
 ?>
 
 <h1>Editar Usuário</h1>
