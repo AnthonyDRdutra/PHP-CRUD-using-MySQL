@@ -6,7 +6,7 @@ Simple CRUD setup for MySQL , Object Oriented and using PDO
 
   This is an basic CRUD (create, read, update, and delete) program, for studing porpuses, in a intentent to be modular and simple. 
   
-  This code is able to post data, create, delete, and modify data on the database, using mid scripts that will connect our page script to our code scripts. 
+  This code is able to post data, create, delete, and modify data on the database, with the follwing structure `GUI -> Process code CALL function inside CRUD_logic -> output`
 
  <h3 align="left">How to setup:</h3
 
@@ -27,37 +27,6 @@ Wich i will use as default setup in all PDOS, example:
 $pdo  = new PDO($this -> pdo_setup, self::login['default_username'], self::login['default_password']);
 ```
 
-<h3 align="left">Mid scripts?:</h3
-                                
-As for mid scripts im refferring at the current scripting workflow, as for example, the 'Cadastrar Usuário' option will redirect you to another page in `clientsingupUI.php`, which when you add a new client will call the `clientsingup.php` wich will process the data and call a function inside `CRUD_logic.php` that will post the data on the database. 
-````
-<h1>Cadastrar Usuário</h1>
-<form method="POST" action="clientsingup.php">
-    <label>
-        Nome: <input type="text" name="nome"/>
-    </label>
-    <label>
-        Email: <input type="email" name="email"/>
-    </label>
-    <input type="submit" value ="adicionar"/>
-</form>
-````
-that will call this script, with the `Create_client()` function
-```
-<?php
-include "CRUD_logic.php";
-//this is the intermediate code that will get the data inputed on URL page
-//and process it using our class 'CRUD_logic.php' and function 'Create_client'
-
-$input_name = filter_input(INPUT_POST, 'nome');
-//we validate the email to be sure of it structure 
-$input_email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
-
-//we call our class
-$logic_process = new \Include\CRUD_logic();
-//our function an its inputs
-$logic_process -> Create_client($input_name, $input_email);
-```
 <h3 align="left">Posting, reading, editing and excluding data:</h3
 
 Using PDO most of our processe will be done using `input_filter`, `query`, `rowCount`, `prepare` and others. (PDO documentation: https://www.php.net/manual/en/book.pdo.php)
